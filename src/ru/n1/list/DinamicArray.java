@@ -1,4 +1,4 @@
-package ru.l3.list;
+package ru.n1.list;
 
 import java.util.Arrays;
 

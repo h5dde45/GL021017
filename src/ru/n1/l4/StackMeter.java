@@ -1,4 +1,4 @@
-package ru.l4;
+package ru.n1.l4;
 
 public class StackMeter {
     static int counter0 = 0;

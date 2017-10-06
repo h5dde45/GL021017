@@ -1,4 +1,4 @@
-package ru.t8;
+package ru.n1.t8;
 
 public class TE_4a {
     public static void main(String[] args) throws InterruptedException {

@@ -1,4 +1,4 @@
-package ru.t8;
+package ru.n1.t8;
 
 public class PrintRunnable implements Runnable {
     private String msg;

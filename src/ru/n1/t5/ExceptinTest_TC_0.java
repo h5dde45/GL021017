@@ -1,4 +1,4 @@
-package ru.t5;
+package ru.n1.t5;
 
 public class ExceptinTest_TC_0 {
     public static void main(String[] args) {

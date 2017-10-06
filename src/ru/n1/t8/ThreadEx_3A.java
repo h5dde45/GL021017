@@ -1,4 +1,4 @@
-package ru.t8;
+package ru.n1.t8;
 
 public class ThreadEx_3A {
     public static void main(String[] args) throws InterruptedException {
