@@ -5,7 +5,7 @@ public interface XMap<K, V> {
 
     public V get(K key);
 
-    public boolean containsKey(K key);
+    abstract boolean containsKey(K key);
 
     public void remove(K key);
 
