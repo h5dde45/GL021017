@@ -70,7 +70,7 @@ public class InterruptExmpl {
         });
         thread.start();
         Thread.sleep(3333);
-        thread.destroy();
+//        thread.destroy();
 
     }
 }
