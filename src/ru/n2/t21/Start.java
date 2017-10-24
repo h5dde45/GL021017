@@ -11,10 +11,10 @@ public class Start {
 //        new A();
 //        new B();
 //        new C(3);
-//        new D();
-//        new D(34);
+//        new Dog();
+//        new Dog(34);
 
-//        Class[] classes={A.class,B.class,C.class,D.class};
+//        Class[] classes={A.class,B.class,C.class,Dog.class};
 //        for (Class aClass:classes){
 //            Constructor[] c=aClass.getDeclaredConstructors();
 //            System.out.println(Arrays.toString(c));
