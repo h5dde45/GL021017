@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-10-25T18:01:57</date>
+  <millis>1508947317375</millis>
+  <sequence>0</sequence>
+  <logger>ru.av.p4.log.ClassA</logger>
+  <level>FINE</level>
+  <class>ru.av.p4.log.ClassA</class>
+  <method>doSomeThing</method>
+  <thread>1</thread>
+  <message>A - fine</message>
+</record>
+<record>
+  <date>2017-10-25T18:01:57</date>
+  <millis>1508947317395</millis>
+  <sequence>1</sequence>
+  <logger>ru.av.p4.log.ClassA</logger>
+  <level>CONFIG</level>
+  <class>ru.av.p4.log.ClassA</class>
+  <method>doSomeThing</method>
+  <thread>1</thread>
+  <message>A - config</message>
+</record>
+<record>
+  <date>2017-10-25T18:01:57</date>
+  <millis>1508947317395</millis>
+  <sequence>2</sequence>
+  <logger>ru.av.p4.log.ClassA</logger>
+  <level>INFO</level>
+  <class>ru.av.p4.log.ClassA</class>
+  <method>doSomeThing</method>
+  <thread>1</thread>
+  <message>A - info</message>
+</record>
+<record>
+  <date>2017-10-25T18:01:57</date>
+  <millis>1508947317410</millis>
+  <sequence>3</sequence>
+  <logger>ru.av.p4.log.ClassB</logger>
+  <level>INFO</level>
+  <class>ru.av.p4.log.ClassB</class>
+  <method>doSomeThingElse</method>
+  <thread>1</thread>
+  <message>ClassB: 234</message>
+</record>
+<record>
+  <date>2017-10-25T18:01:57</date>
+  <millis>1508947317413</millis>
+  <sequence>4</sequence>
+  <logger>ru.av.p4.log.ClassB</logger>
+  <level>SEVERE</level>
+  <class>ru.av.p4.log.ClassB</class>
+  <method>doSomeThingElse</method>
+  <thread>1</thread>
+  <message>Exception</message>
+  <exception>
+    <message>java.lang.Exception</message>
+    <frame>
+      <class>ru.av.p4.log.ClassB</class>
+      <method>doSomeThingElse</method>
+      <line>12</line>
+    </frame>
+    <frame>
+      <class>ru.av.p4.log.LogD</class>
+      <method>main</method>
+      <line>18</line>
+    </frame>
+    <frame>
+      <class>sun.reflect.NativeMethodAccessorImpl</class>
+      <method>invoke0</method>
+    </frame>
+    <frame>
+      <class>sun.reflect.NativeMethodAccessorImpl</class>
+      <method>invoke</method>
+      <line>62</line>
+    </frame>
+    <frame>
+      <class>sun.reflect.DelegatingMethodAccessorImpl</class>
+      <method>invoke</method>
+      <line>43</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>498</line>
+    </frame>
+    <frame>
+      <class>com.intellij.rt.execution.application.AppMain</class>
+      <method>main</method>
+      <line>147</line>
+    </frame>
+  </exception>
+</record>
+</log>
