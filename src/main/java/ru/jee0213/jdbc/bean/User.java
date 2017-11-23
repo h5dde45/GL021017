@@ -1,4 +1,4 @@
-package ru.jee0213.jdbc.dao;
+package ru.jee0213.jdbc.bean;
 
 public class User {
     private final int id;
