@@ -12,15 +12,15 @@ public class JdbcUtils {
     }
 
     public static synchronized void initDriver(String driverClass) {
-        if (!initialized) {
-            try {
-                Class.forName(driverClass);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-                throw new RuntimeException("Can't initialize driver: '" + driverClass + "'");
-            }
-            initialized = true;
-        }
+//        if (!initialized) {
+//            try {
+//                Class.forName(driverClass);
+//            } catch (ClassNotFoundException e) {
+//                e.printStackTrace();
+//                throw new RuntimeException("Can't initialize driver: '" + driverClass + "'");
+//            }
+//            initialized = true;
+//        }
     }
 
     public static void rollbackQuietly(Connection conn) {

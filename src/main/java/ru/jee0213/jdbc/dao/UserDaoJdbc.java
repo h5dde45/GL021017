@@ -3,6 +3,8 @@ package ru.jee0213.jdbc.dao;
 
 import ru.jee0213.jdbc.bean.User;
 import ru.jee0213.jdbc.exception.DBSystemException;
+import ru.jee0213.jdbc.exception.NotUniqueUserLoginException;
+import ru.n3.t3.NotUniqueUserMailException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -21,9 +23,9 @@ public class UserDaoJdbc implements UserDao {
     private static final String PASSWORD = "root";
 
 
-    static {
-        JdbcUtils.initDriver(DRIVER_CLASS_NAME);
-    }
+//    static {
+//        JdbcUtils.initDriver(DRIVER_CLASS_NAME);
+//    }
 
     @Override
     public List<User> selectAll() throws DBSystemException {
@@ -68,8 +70,8 @@ public class UserDaoJdbc implements UserDao {
             conn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
             conn.setAutoCommit(false);
             ps = conn.prepareStatement(DELETE_BY_ID_SQL);
-            ps.setInt(1,id);
-            int result=ps.executeUpdate();
+            ps.setInt(1, id);
+            int result = ps.executeUpdate();
             conn.commit();
             return result;
         } catch (SQLException e) {
@@ -82,8 +84,47 @@ public class UserDaoJdbc implements UserDao {
     }
 
     @Override
-    public void insert(User user) {
+    public void insert(User user) throws DBSystemException, NotUniqueUserLoginException,
+            NotUniqueUserMailException {
+        Connection conn = getConnection();
+        PreparedStatement ps = null;
 
+        try {
+            conn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
+            conn.setAutoCommit(false);
+            if (existWithLogin0(conn, user.getLogin())) {
+                throw new NotUniqueUserLoginException("Login '" + user.getLogin() + "'");
+            }
+            if (existWithEmail0(conn, user.getLogin())) {
+                throw new NotUniqueUserMailException("Login '" + user.getEmail() + "'");
+            }
+
+            ps = conn.prepareStatement(INSERT_SQL);
+            ps.setString(1, user.getLogin());
+            ps.setString(2, user.getEmail());
+            int result = ps.executeUpdate();
+            conn.commit();
+        } catch (SQLException e) {
+            JdbcUtils.rollbackQuietly(conn);
+            throw new DBSystemException("Can't execute sql = '" + SELECT_ALL_SQL + "'", e);
+        } finally {
+            JdbcUtils.closeQuielty(ps);
+            JdbcUtils.closeQuielty(conn);
+        }
+    }
+
+    private boolean existWithLogin0(Connection conn, String login) throws SQLException {
+        PreparedStatement ps =conn.prepareStatement(SELECT_BY_LOGIN);
+        ps.setString(1,login);
+        ResultSet resultSet=ps.executeQuery();
+        return resultSet.next();
+    }
+
+    private boolean existWithEmail0(Connection conn, String email) throws SQLException {
+        PreparedStatement ps =conn.prepareStatement(SELECT_BY_EMAIL);
+        ps.setString(1,email);
+        ResultSet resultSet=ps.executeQuery();
+        return resultSet.next();
     }
 
     public Connection getConnection() throws DBSystemException {

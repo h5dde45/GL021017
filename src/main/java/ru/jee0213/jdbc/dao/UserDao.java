@@ -10,5 +10,5 @@ import java.util.List;
 public interface UserDao {
      List<User> selectAll() throws DBSystemException;
      int deleteById(int id) throws DBSystemException;
-     void insert(User user) throws DBSystemException, NotUniqueUserLoginException,NotUniqueUserMailException;
+     void insert(User user) throws DBSystemException, NotUniqueUserLoginException, NotUniqueUserMailException, ru.n3.t3.NotUniqueUserMailException;
 }
